@@ -28,7 +28,7 @@
 <<<HTML
 	
 				<div style="text-align: center; width: 100%;">
-					<select id="switch_env" onchange="javascript:var sEnv = $('#switch_env').val(); var sUrl = window.location.href; if(sUrl.includes('?') == false){ window.location.href = sUrl + '?switch_env=' + sEnv;} else { sUrl = sUrl.replace(/(&|\?)switch_env=.*?(?=&|$)/, ''); window.location.href = sUrl + '&switch_env=' + sEnv; }">
+					<select id="switch_env" onchange="javascript:var sEnv = $('#switch_env').val(); var sUrl = window.location.href.replace(/(&|\?)switch_env=.*?(?=&|$)/, ''); if(sUrl.includes('?') == false){ window.location.href = sUrl + '?switch_env=' + sEnv;} else { window.location.href = sUrl + '&switch_env=' + sEnv; }">
 HTML;
 			
 				$aEnvironments = glob(APPCONF.'/*', GLOB_ONLYDIR);
@@ -96,7 +96,7 @@ HTML;
 <<<HTML
 		
 					<div style="text-align: center; width: 100%;">
-						<select id="switch_env" onchange="javascript:var sEnv = $('#switch_env').val(); var sUrl = window.location.href; if(sUrl.includes('?') == false){ window.location.href = sUrl + '?switch_env=' + sEnv;} else { sUrl = sUrl.replace(/(&|\?)switch_env=.*?(?=&|$)/, ''); window.location.href = sUrl + '&switch_env=' + sEnv; }">
+						<select id="switch_env" onchange="javascript:var sEnv = $('#switch_env').val(); var sUrl = window.location.href.replace(/(&|\?)switch_env=.*?(?=&|$)/, ''); if(sUrl.includes('?') == false){ window.location.href = sUrl + '?switch_env=' + sEnv;} else { window.location.href = sUrl + '&switch_env=' + sEnv; }">
 HTML;
 				
 				$aEnvironments = glob(APPCONF.'/*', GLOB_ONLYDIR);
