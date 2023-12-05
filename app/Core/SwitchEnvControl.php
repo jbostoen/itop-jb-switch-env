@@ -3,7 +3,7 @@
 	namespace jb_itop_extensions\switch_env;
 	
 	// iTop internals
-	use \AbstractPageUIExtension;
+	use \AbstractPageUIBlockExtension;
 	use \Combodo\iTop\Application\UI\Base\Component\Html\Html;
 	use \iPageUIBlockExtension;
 	use \iTopWebPage;
@@ -16,7 +16,7 @@
 		/**
 		 * Class SwitchEnvControl. Adds control to iTop backend top
 		 */
-		class SwitchEnvControl implements iPageUIBlockExtension {
+		class SwitchEnvControl extends AbstractPageUIBlockExtension {
 		
 				
 			/**
@@ -56,19 +56,6 @@ HTML;
 			
 			}
 
-			/**
-			 * @inheritDoc
-			 */
-			public function GetHeaderBlock() {
-				return null;
-			}
-			
-			/**
-			 * @inheritDoc
-			 */
-			public function GetFooterBlock() {
-				return null;
-			}
 			
 		}
 		
@@ -92,9 +79,10 @@ HTML;
 			 */
 			public function GetBannerHtml(iTopWebPage $oPage) {
 				
+				$sAppVersion = ITOP_VERSION;
 				$sHTML =
 <<<HTML
-		
+					<!-- iTop version: {$sAppVersion} -->
 					<div style="text-align: center; width: 100%;">
 						<select id="switch_env" onchange="javascript:var sEnv = $('#switch_env').val(); var sUrl = window.location.href.replace(/(&|\?)switch_env=.*?(?=&|$)/, ''); if(sUrl.includes('?') == false){ window.location.href = sUrl + '?switch_env=' + sEnv;} else { window.location.href = sUrl + '&switch_env=' + sEnv; }">
 HTML;
